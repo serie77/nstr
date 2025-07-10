@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Favicon</title>
+</head>
+<body>
+    <canvas id="canvas" width="32" height="32" style="border: 1px solid black;"></canvas>
+    <br><br>
+    <button onclick="downloadFavicon()">Download Favicon</button>
+    <br><br>
+    <img id="originalImage" src="negrostrategy.png" style="max-width: 200px;" onload="resizeImage()">
+
+    <script>
+        function resizeImage() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = document.getElementById('originalImage');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, 32, 32);
+            
+            // Set canvas to 32x32 (standard favicon size)
+            canvas.width = 32;
+            canvas.height = 32;
+            
+            // Draw the image scaled down to fit in 32x32 with some padding
+            // Add 4px padding on all sides, so use 24x24 for the actual image
+            const padding = 4;
+            const size = 24;
+            
+            ctx.drawImage(img, padding, padding, size, size);
+            
+            console.log('Image resized to favicon dimensions');
+        }
+        
+        function downloadFavicon() {
+            const canvas = document.getElementById('canvas');
+            const link = document.createElement('a');
+            link.download = 'favicon.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html> 
