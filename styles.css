@@ -439,7 +439,8 @@ body {
     box-shadow: var(--shadow-sm);
 }
 
-.twitter-link {
+.twitter-link,
+.community-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -451,17 +452,22 @@ body {
     color: var(--foreground);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
-    margin-left: 0.5rem;
 }
 
-.twitter-link:hover {
+.community-link {
+    margin-right: 0.5rem;
+}
+
+.twitter-link:hover,
+.community-link:hover {
     background: var(--background-tertiary);
     border-color: var(--primary);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
 }
 
-.twitter-icon {
+.twitter-icon,
+.community-icon {
     width: 20px;
     height: 20px;
 }
@@ -629,8 +635,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1.25rem 0;
     border-bottom: 1px solid var(--border-subtle);
+    min-height: 3rem;
 }
 
 .stat-label {
@@ -639,6 +646,8 @@ body {
     font-size: 0.875rem;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
 }
 
 .stat-value {
@@ -646,6 +655,8 @@ body {
     font-size: 1.2rem;
     color: var(--foreground);
     letter-spacing: 0.01em;
+    text-align: right;
+    line-height: 1.2;
 }
 
 .stat-value.positive {
